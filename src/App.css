@@ -60,6 +60,8 @@
   > img {
   width: 100px;
   margin: auto;
+  margin-left: 30px;
+  margin-top: 5px;
 }
 
 #root > div > div.euiPage > div > div {
