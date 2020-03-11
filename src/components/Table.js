@@ -1,13 +1,63 @@
-import React from 'react';
-import { EuiBasicTable, EuiBadge } from '@elastic/eui';
+import React, { Fragment, useState } from 'react';
+import {
+  EuiBasicTable,
+  EuiLink,
+  EuiHealth,
+  EuiFlexGroup,
+  EuiFlexItem,
+  EuiSwitch,
+  EuiSpacer
+} from '@elastic/eui';
 
 const Table = () => {
-  const users = [
+  const [dataTable, setDataTable] = useState({
+    pageIndex: 0,
+    pageSize: 5,
+    sortField: 'firstName',
+    sortDirection: 'asc',
+    selectedItems: [],
+    customHeader: true,
+    isResponsive: true
+  });
+
+  const {
+    pageIndex,
+    pageSize,
+    sortField,
+    sortDirection,
+    customHeader,
+    isResponsive
+  } = dataTable;
+
+  const onSelectionChange = selectedItems => {
+    setDataTable({ selectedItems });
+  };
+
+  const toggleResponsive = () => {
+    setDataTable(prevState => ({ isResponsive: !prevState.isResponsive }));
+  };
+
+  const toggleHeader = () => {
+    setDataTable(prevState => ({ customHeader: !prevState.customHeader }));
+  };
+
+  const deleteUser = user => {
+    //store.deleteUsers(user.id);
+    setDataTable({ selectedItems: [] });
+  };
+
+  const cloneUser = user => {
+    //store.cloneUser(user.id);
+    setDataTable({ selectedItems: [] });
+  };
+
+  const items = [
     {
       id: '1',
       firstName: 'john',
       lastName: 'doe',
       github: 'johndoe',
+      dateOfBirth: Date.now(),
       nationality: 'NL',
       online: true
     },
@@ -16,6 +66,7 @@ const Table = () => {
       firstName: 'john',
       lastName: 'doe',
       github: 'johndoe',
+      dateOfBirth: Date.now(),
       nationality: 'NL',
       online: true
     },
@@ -24,6 +75,7 @@ const Table = () => {
       firstName: 'john',
       lastName: 'doe',
       github: 'johndoe',
+      dateOfBirth: Date.now(),
       nationality: 'NL',
       online: true
     },
@@ -32,114 +84,152 @@ const Table = () => {
       firstName: 'john',
       lastName: 'doe',
       github: 'johndoe',
-      nationality: 'NL',
-      online: true
-    },
-    {
-      id: '5',
-      firstName: 'john',
-      lastName: 'doe',
-      github: 'johndoe',
+      dateOfBirth: Date.now(),
       nationality: 'NL',
       online: true
     }
   ];
 
-  const items = users.filter((user, index) => index < 10);
+  const actions = [
+    {
+      name: 'Clone',
+      description: 'Clone this person',
+      icon: 'copy',
+      type: 'icon',
+      onClick: cloneUser
+    },
+    {
+      name: 'Delete',
+      description: 'Delete this person',
+      icon: 'trash',
+      type: 'icon',
+      color: 'danger',
+      onClick: deleteUser
+    }
+  ];
 
   const columns = [
     {
       field: 'firstName',
-      name: 'Profile',
+      name: 'First Name',
+      truncateText: true,
+      sortable: true,
       mobileOptions: {
-        render: item => <span>{item.firstName}</span>,
-        header: false,
-        truncateText: false,
-        enlarge: true,
-        fullWidth: true
+        render: customHeader
+          ? item => (
+              <span>
+                {item.firstName} {item.lastName}
+              </span>
+            )
+          : undefined,
+        header: customHeader ? false : true,
+        fullWidth: customHeader ? true : false,
+        enlarge: customHeader ? true : false,
+        truncateText: customHeader ? false : true
       }
     },
     {
       field: 'lastName',
-      name: 'Source',
+      name: 'Last Name',
+      truncateText: true,
       mobileOptions: {
-        render: item => <span>{item.lastName}</span>,
-        header: false,
-        truncateText: false,
-        enlarge: true,
-        fullWidth: true
+        show: !isResponsive || !customHeader
       }
     },
     {
-      field: 'lastName',
-      name: 'Campaign',
+      field: 'github',
+      name: 'Github',
+      truncateText: true,
       mobileOptions: {
-        render: item => <span>{item.lastName}</span>,
-        header: false,
-        truncateText: false,
-        enlarge: true,
-        fullWidth: true
+        show: !isResponsive || !customHeader
       }
     },
     {
-      field: 'lastName',
-      name: 'Status',
+      field: 'dateOfBirth',
+      name: 'Date of Birth',
+      dataType: 'date',
+      truncateText: true,
       mobileOptions: {
-        render: item => (
-          <span>
-            <EuiBadge color='hollow' iconType='cross' iconSide='right'>
-              {item.lastName}
-            </EuiBadge>
-          </span>
-        ),
-        header: false,
-        truncateText: false,
-        enlarge: true,
-        fullWidth: true
+        show: !isResponsive || !customHeader
       }
     },
     {
-      field: 'lastName',
-      name: 'Action',
+      field: 'nationality',
+      name: 'Nationality',
+      truncateText: true,
       mobileOptions: {
-        render: item => <span>{item.lastName}</span>,
-        header: false,
-        truncateText: false,
-        enlarge: true,
-        fullWidth: true
+        show: !isResponsive || !customHeader
       }
+    },
+    {
+      field: 'online',
+      name: 'Online',
+      dataType: 'boolean',
+      truncateText: true,
+      mobileOptions: {
+        show: !isResponsive || !customHeader
+      },
+      sortable: true
+    },
+    {
+      name: 'Actions',
+      actions
     }
   ];
 
-  const getRowProps = item => {
-    const { id } = item;
-    return {
-      'data-test-subj': `row-${id}`,
-      className: 'customRowClass',
-      onClick: () => console.log(`Clicked row ${id}`)
-    };
+  const pagination = {
+    pageIndex: pageIndex,
+    pageSize: pageSize,
+    totalItemCount: 5,
+    pageSizeOptions: [3, 5, 8]
   };
 
-  const getCellProps = (item, column) => {
-    const { id } = item;
-    const { field } = column;
-    return {
-      className: 'customCellClass',
-      'data-test-subj': `cell-${id}-${field}`,
-      textOnly: true
-    };
+  const sorting = {
+    sort: {
+      field: sortField,
+      direction: sortDirection
+    }
+  };
+
+  const selection = {
+    selectable: user => user.online,
+    selectableMessage: selectable =>
+      !selectable ? 'User is currently offline' : undefined,
+    onSelectionChange: onSelectionChange
   };
 
   return (
-    <div>
+    <Fragment>
+      <EuiFlexGroup alignItems='center' responsive={false}>
+        <EuiFlexItem grow={false}>
+          <EuiSwitch
+            label='Responsive'
+            checked={isResponsive}
+            onChange={toggleResponsive}
+          />
+        </EuiFlexItem>
+        <EuiFlexItem grow={false}>
+          <EuiSwitch
+            label='Custom header'
+            disabled={!isResponsive}
+            checked={isResponsive && customHeader}
+            onChange={toggleHeader}
+          />
+        </EuiFlexItem>
+      </EuiFlexGroup>
+
+      <EuiSpacer size='l' />
+
       <EuiBasicTable
         items={items}
-        rowHeader='firstName'
+        itemId='id'
         columns={columns}
-        rowProps={getRowProps}
-        cellProps={getCellProps}
+        selection={selection}
+        isSelectable={true}
+        hasActions={true}
+        responsive={isResponsive}
       />
-    </div>
+    </Fragment>
   );
 };
 
