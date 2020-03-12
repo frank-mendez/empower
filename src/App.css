@@ -130,3 +130,8 @@
   height: 700px;
   overflow: scroll;
 }
+
+.euiLoadingSpinner {
+  margin-left: 50%;
+  margin-top: 50%;
+}

@@ -23,3 +23,21 @@ export const getCurrentRecruit = () => async dispatch => {
     });
   }
 };
+
+// Get current Sourcing
+export const getCurrentSource = () => async dispatch => {
+  try {
+    const res = await axios.get(
+      'https://raw.githubusercontent.com/frank-mendez/empower/master/src/sourcing.json'
+    );
+    dispatch({
+      type: SOURCE_LOADED,
+      payload: res.data
+    });
+  } catch (error) {
+    dispatch({
+      type: SOURCE_ERROR,
+      payload: { msg: 'Source Error' }
+    });
+  }
+};

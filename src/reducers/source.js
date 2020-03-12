@@ -8,6 +8,7 @@ import {
 const initialState = {
   recruits: [],
   error: {},
+  sources: [],
   loading: true
 };
 
@@ -22,6 +23,18 @@ export default function(state = initialState, action) {
         loading: false
       };
     case RECRUIT_ERROR:
+      return {
+        ...state,
+        error: payload,
+        loading: false
+      };
+    case SOURCE_LOADED:
+      return {
+        ...state,
+        sources: payload,
+        loading: false
+      };
+    case SOURCE_ERROR:
       return {
         ...state,
         error: payload,

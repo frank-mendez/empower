@@ -1,4 +1,6 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import {
   EuiBasicTable,
   EuiLink,
@@ -9,7 +11,13 @@ import {
   EuiSpacer
 } from '@elastic/eui';
 
-const Table = () => {
+import { getCurrentSource } from '../actions/source';
+
+const Table = ({ getCurrentSource, sources }) => {
+  useEffect(() => {
+    getCurrentSource();
+  }, [getCurrentSource]);
+
   const [dataTable, setDataTable] = useState({
     pageIndex: 0,
     pageSize: 5,
@@ -233,4 +241,15 @@ const Table = () => {
   );
 };
 
-export default Table;
+Table.propTypes = {
+  getCurrentSource: PropTypes.func.isRequired,
+  sources: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired
+};
+
+const mapStateToProps = state => ({
+  sources: state.source.sources,
+  loading: state.loading
+});
+
+export default connect(mapStateToProps, { getCurrentSource })(Table);
