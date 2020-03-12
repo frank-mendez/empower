@@ -1,4 +1,6 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import {
   EuiPage,
   EuiSpacer,
@@ -21,7 +23,13 @@ import {
 
 import Table from '../Table';
 
-const Dashboard = () => {
+import { getCurrentRecruit } from '../../actions/source';
+
+const Dashboard = ({ getCurrentRecruit, recruits }) => {
+  useEffect(() => {
+    getCurrentRecruit();
+  }, [getCurrentRecruit]);
+
   const [formData, setFormData] = useState({ selectAction: '' });
 
   const { selectAction } = formData;
@@ -494,4 +502,13 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+Dashboard.propTypes = {
+  getCurrentRecruit: PropTypes.func.isRequired,
+  recruits: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  recruits: state.recruits
+});
+
+export default connect(mapStateToProps, { getCurrentRecruit })(Dashboard);

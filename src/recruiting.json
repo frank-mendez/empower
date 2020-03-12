@@ -1,66 +1,162 @@
 [
   {
-    "_id": "5e69ec08aa56a72dd104275a",
+    "_id": "5e69f697134f447ed21e198a",
     "index": 0,
-    "guid": "47e604b0-e485-49c2-bbaf-1029ae4e23db",
-    "position": "Signal Processing AI",
-    "date": 1584000008742,
-    "url_search": "<SyntaxError: missing ) after argument list>"
+    "guid": "cf79ac61-3bd4-4b8d-ad89-69edbd011708",
+    "position": "Fixed Point Engineer",
+    "date": 1584002711821,
+    "url_search": "Architecture RTP, GPU OR NPU  OR neural OR DSP OR Signal"
   },
   {
-    "_id": "5e69ec0836e04a8b7a01bc34",
+    "_id": "5e69f6974688630e9d814e97",
     "index": 1,
-    "guid": "7fcfb0f6-a273-49c1-ad55-a7993760fc1a",
-    "position": "Hardware Architect - San Diego",
-    "date": 1584000008742,
-    "url_search": "<SyntaxError: missing ) after argument list>"
+    "guid": "58a6e82b-2313-4177-832e-f0d62d688784",
+    "position": "Fixed Point Engineer",
+    "date": 1584002711821,
+    "url_search": "Architecture RTP, GPU OR NPU  OR neural OR DSP OR Signal"
   },
   {
-    "_id": "5e69ec0885f12792d833e913",
+    "_id": "5e69f69791f3926397e824cf",
     "index": 2,
-    "guid": "58807fbe-f0fd-4252-a4c5-ab56dff6cc0e",
-    "position": "Fixed Point Engineer",
-    "date": 1584000008742,
-    "url_search": "<SyntaxError: missing ) after argument list>"
+    "guid": "9400377a-f7d2-424a-bed8-c706cf270699",
+    "position": "Hardware Architect - San Diego",
+    "date": 1584002711821,
+    "url_search": "Fixed-Point OR fixed Point OR fixed point"
   },
   {
-    "_id": "5e69ec08b42d3b4d75e0f0c2",
+    "_id": "5e69f6977d20aee5bd5a643c",
     "index": 3,
-    "guid": "0b96d7b9-641a-4acc-a42f-cb6270aee09a",
+    "guid": "d2795847-b2b5-4191-9a4b-cbceb75a2ba1",
     "position": "Hardware Architect - San Diego",
-    "date": 1584000008742,
-    "url_search": "<SyntaxError: missing ) after argument list>"
+    "date": 1584002711821,
+    "url_search": "Architecture RTP, GPU OR NPU  OR neural OR DSP OR Signal"
   },
   {
-    "_id": "5e69ec084b3013da35e67516",
+    "_id": "5e69f6979b701007c7652c14",
     "index": 4,
-    "guid": "61a0e580-e85b-446c-a078-58817c140093",
-    "position": "Hardware Architect - San Diego",
-    "date": 1584000008742,
-    "url_search": "<SyntaxError: missing ) after argument list>"
+    "guid": "23cd57fe-baca-479c-832d-05706d12cbd5",
+    "position": "Signal Processing AI",
+    "date": 1584002711821,
+    "url_search": "Fixed-Point OR fixed Point OR fixed point"
   },
   {
-    "_id": "5e69ec0835b7ab6ddd04ac88",
+    "_id": "5e69f697aeaa72a309f1340f",
     "index": 5,
-    "guid": "e4a5dd58-83d2-45cb-8cb0-8783ae1ebd88",
+    "guid": "a840f227-3b49-4f82-9f46-aa3780b23d94",
     "position": "Fixed Point Engineer",
-    "date": 1584000008742,
-    "url_search": "<SyntaxError: missing ) after argument list>"
+    "date": 1584002711821,
+    "url_search": "Fixed-Point OR fixed Point” OR “fixed point"
   },
   {
-    "_id": "5e69ec087f360705afdf80b1",
+    "_id": "5e69f6976441adeb475e5e73",
     "index": 6,
-    "guid": "f186a5fa-61e4-4856-ace6-44d14a4e4132",
-    "position": "Fixed Point Engineer",
-    "date": 1584000008742,
-    "url_search": "<SyntaxError: missing ) after argument list>"
+    "guid": "d4bd671d-02f4-416c-b41e-90652ea0be08",
+    "position": "Hardware Architect - San Diego",
+    "date": 1584002711821,
+    "url_search": "Architecture RTP, GPU OR NPU  OR neural OR DSP OR Signal"
   },
   {
-    "_id": "5e69ec08212728bce13c4188",
+    "_id": "5e69f69780349440bff077f3",
     "index": 7,
-    "guid": "1751c1eb-4383-4124-a288-911b90134d39",
+    "guid": "9d656737-7edb-4593-ae6e-cb153a9383df",
+    "position": "Fixed Point Engineer",
+    "date": 1584002711821,
+    "url_search": "Fixed-Point OR fixed Point” OR “fixed point"
+  },
+  {
+    "_id": "5e69f697c94798810349094b",
+    "index": 8,
+    "guid": "b5dbc241-7afa-4059-bff2-ae34f55553b1",
     "position": "Hardware Architect - San Diego",
-    "date": 1584000008742,
-    "url_search": "<SyntaxError: missing ) after argument list>"
+    "date": 1584002711821,
+    "url_search": "Architecture RTP, GPU OR NPU  OR neural OR DSP OR Signal"
+  },
+  {
+    "_id": "5e69f69731c83fa5e2c67c0e",
+    "index": 9,
+    "guid": "409ce9c1-8f4a-4b27-8d9e-3dd7e1fa9e21",
+    "position": "Signal Processing AI",
+    "date": 1584002711821,
+    "url_search": "Architecture RTP, GPU OR NPU  OR neural OR DSP OR Signal"
+  },
+  {
+    "_id": "5e69f697dcf92dd973372bee",
+    "index": 10,
+    "guid": "f649bd26-6554-4b2c-a5bd-593cce396b9f",
+    "position": "Fixed Point Engineer",
+    "date": 1584002711821,
+    "url_search": "Architecture RTP, GPU OR NPU  OR neural OR DSP OR Signal"
+  },
+  {
+    "_id": "5e69f6976fe1e35e156289cd",
+    "index": 11,
+    "guid": "193a8d5b-75c8-4a70-889f-9d5c245ac933",
+    "position": "Signal Processing AI",
+    "date": 1584002711821,
+    "url_search": "Architecture RTP, GPU OR NPU  OR neural OR DSP OR Signal"
+  },
+  {
+    "_id": "5e69f6973abd6cb3599ab98d",
+    "index": 12,
+    "guid": "b12f02a6-7c79-4225-962d-e9e764adb835",
+    "position": "Hardware Architect - San Diego",
+    "date": 1584002711821,
+    "url_search": "Fixed-Point OR fixed Point OR fixed point"
+  },
+  {
+    "_id": "5e69f6970d5a1cb395605e5b",
+    "index": 13,
+    "guid": "18b71843-c8a4-44b4-a56d-52f902bcd786",
+    "position": "Hardware Architect - San Diego",
+    "date": 1584002711821,
+    "url_search": "Fixed-Point OR fixed Point” OR “fixed point"
+  },
+  {
+    "_id": "5e69f6972a06239fe484c809",
+    "index": 14,
+    "guid": "589769ea-1c90-46ae-b38e-468535a2fde3",
+    "position": "Signal Processing AI",
+    "date": 1584002711821,
+    "url_search": "Architecture RTP, GPU OR NPU  OR neural OR DSP OR Signal"
+  },
+  {
+    "_id": "5e69f6970c8890633ee089e8",
+    "index": 15,
+    "guid": "39037604-f193-4196-95ce-c30b04982c09",
+    "position": "Signal Processing AI",
+    "date": 1584002711821,
+    "url_search": "Fixed-Point OR fixed Point” OR “fixed point"
+  },
+  {
+    "_id": "5e69f6975911d1c7e7245d73",
+    "index": 16,
+    "guid": "5b900cfb-ff45-49ff-ad7e-04895a1e3712",
+    "position": "Fixed Point Engineer",
+    "date": 1584002711821,
+    "url_search": "Architecture RTP, GPU OR NPU  OR neural OR DSP OR Signal"
+  },
+  {
+    "_id": "5e69f697da083d59cba6b422",
+    "index": 17,
+    "guid": "cb7cfdeb-30a7-4575-97f4-38c2532421ba",
+    "position": "Hardware Architect - San Diego",
+    "date": 1584002711821,
+    "url_search": "Architecture RTP, GPU OR NPU  OR neural OR DSP OR Signal"
+  },
+  {
+    "_id": "5e69f697f8f61ff29a213524",
+    "index": 18,
+    "guid": "95f16b5d-8205-436c-af91-2c9d4c0dbd21",
+    "position": "Fixed Point Engineer",
+    "date": 1584002711821,
+    "url_search": "Fixed-Point OR fixed Point” OR “fixed point"
+  },
+  {
+    "_id": "5e69f69790401e2f1ff641e5",
+    "index": 19,
+    "guid": "a7e23923-d13a-436b-b9ee-663cab5cfae0",
+    "position": "Signal Processing AI",
+    "date": 1584002711821,
+    "url_search": "Architecture RTP, GPU OR NPU  OR neural OR DSP OR Signal"
   }
 ]
