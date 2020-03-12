@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import {
   EuiBasicTable,
   EuiLink,
+  EuiText,
   EuiHealth,
   EuiFlexGroup,
   EuiFlexItem,
   EuiSwitch,
-  EuiSpacer
+  EuiSpacer,
+  EuiInMemoryTable
 } from '@elastic/eui';
 
 import { getCurrentSource } from '../actions/source';
@@ -17,25 +19,6 @@ const Table = ({ getCurrentSource, sources }) => {
   useEffect(() => {
     getCurrentSource();
   }, [getCurrentSource]);
-
-  const [dataTable, setDataTable] = useState({
-    pageIndex: 0,
-    pageSize: 5,
-    sortField: 'firstName',
-    sortDirection: 'asc',
-    selectedItems: [],
-    customHeader: true,
-    isResponsive: true
-  });
-
-  const {
-    pageIndex,
-    pageSize,
-    sortField,
-    sortDirection,
-    customHeader,
-    isResponsive
-  } = dataTable;
 
   const onSelectionChange = selectedItems => {
     setDataTable({ selectedItems });
@@ -59,44 +42,15 @@ const Table = ({ getCurrentSource, sources }) => {
     setDataTable({ selectedItems: [] });
   };
 
-  const items = [
-    {
-      id: '1',
-      firstName: 'john',
-      lastName: 'doe',
-      github: 'johndoe',
-      dateOfBirth: Date.now(),
-      nationality: 'NL',
-      online: true
-    },
-    {
-      id: '2',
-      firstName: 'john',
-      lastName: 'doe',
-      github: 'johndoe',
-      dateOfBirth: Date.now(),
-      nationality: 'NL',
-      online: true
-    },
-    {
-      id: '3',
-      firstName: 'john',
-      lastName: 'doe',
-      github: 'johndoe',
-      dateOfBirth: Date.now(),
-      nationality: 'NL',
-      online: true
-    },
-    {
-      id: '4',
-      firstName: 'john',
-      lastName: 'doe',
-      github: 'johndoe',
-      dateOfBirth: Date.now(),
-      nationality: 'NL',
-      online: true
-    }
-  ];
+  const [dataTable, setDataTable] = useState({
+    pageIndex: 0,
+    pageSize: 5,
+    sortField: 'source',
+    sortDirection: 'asc',
+    selectedItems: []
+  });
+
+  const { pageIndex, pageSize, sortField, sortDirection } = dataTable;
 
   const actions = [
     {
@@ -118,64 +72,108 @@ const Table = ({ getCurrentSource, sources }) => {
 
   const columns = [
     {
-      field: 'firstName',
-      name: 'First Name',
+      field: 'source',
+      name: 'Source',
       truncateText: true,
       sortable: true,
       mobileOptions: {
-        render: customHeader
-          ? item => (
-              <span>
-                {item.firstName} {item.lastName}
-              </span>
-            )
-          : undefined,
-        header: customHeader ? false : true,
-        fullWidth: customHeader ? true : false,
-        enlarge: customHeader ? true : false,
-        truncateText: customHeader ? false : true
+        show: true,
+        render: item => (
+          <span>
+            <EuiLink href='#' target='_blank'>
+              {item.source}
+            </EuiLink>
+          </span>
+        )
       }
     },
     {
-      field: 'lastName',
-      name: 'Last Name',
+      field: 'name',
+      name: 'Name',
       truncateText: true,
+      sortable: true,
       mobileOptions: {
-        show: !isResponsive || !customHeader
+        show: true,
+        render: item => (
+          <span>
+            <EuiLink href='#' target='_blank'>
+              {item.name}
+            </EuiLink>
+          </span>
+        )
       }
     },
     {
-      field: 'github',
-      name: 'Github',
+      field: 'company',
+      name: 'Company',
       truncateText: true,
+      sortable: true,
       mobileOptions: {
-        show: !isResponsive || !customHeader
+        show: true,
+        render: item => (
+          <span>
+            <EuiLink href='#' target='_blank'>
+              {item.company}
+            </EuiLink>
+          </span>
+        )
       }
     },
     {
-      field: 'dateOfBirth',
-      name: 'Date of Birth',
-      dataType: 'date',
+      field: 'title',
+      name: 'Title',
       truncateText: true,
+      sortable: true,
       mobileOptions: {
-        show: !isResponsive || !customHeader
+        show: true,
+        render: item => (
+          <span>
+            <EuiText>{item.title}</EuiText>
+          </span>
+        )
       }
     },
     {
-      field: 'nationality',
-      name: 'Nationality',
+      field: 'location',
+      name: 'Location',
       truncateText: true,
+      sortable: true,
       mobileOptions: {
-        show: !isResponsive || !customHeader
+        show: true,
+        render: item => (
+          <span>
+            <EuiText>{item.address}</EuiText>
+          </span>
+        )
       }
     },
     {
-      field: 'online',
-      name: 'Online',
-      dataType: 'boolean',
+      field: 'campaign',
+      name: 'Campaign',
       truncateText: true,
       mobileOptions: {
-        show: !isResponsive || !customHeader
+        show: true,
+        render: item => (
+          <span>
+            <EuiLink href='#' target='_blank'>
+              {item.campaign}
+            </EuiLink>
+          </span>
+        )
+      },
+      sortable: true
+    },
+    {
+      field: 'status',
+      name: 'Status',
+      truncateText: true,
+      mobileOptions: {
+        show: true,
+        render: item => (
+          <span>
+            <EuiText>{item.status}</EuiText>
+          </span>
+        )
       },
       sortable: true
     },
@@ -184,20 +182,6 @@ const Table = ({ getCurrentSource, sources }) => {
       actions
     }
   ];
-
-  const pagination = {
-    pageIndex: pageIndex,
-    pageSize: pageSize,
-    totalItemCount: 5,
-    pageSizeOptions: [3, 5, 8]
-  };
-
-  const sorting = {
-    sort: {
-      field: sortField,
-      direction: sortDirection
-    }
-  };
 
   const selection = {
     selectable: user => user.online,
@@ -208,34 +192,16 @@ const Table = ({ getCurrentSource, sources }) => {
 
   return (
     <Fragment>
-      <EuiFlexGroup alignItems='center' responsive={false}>
-        <EuiFlexItem grow={false}>
-          <EuiSwitch
-            label='Responsive'
-            checked={isResponsive}
-            onChange={toggleResponsive}
-          />
-        </EuiFlexItem>
-        <EuiFlexItem grow={false}>
-          <EuiSwitch
-            label='Custom header'
-            disabled={!isResponsive}
-            checked={isResponsive && customHeader}
-            onChange={toggleHeader}
-          />
-        </EuiFlexItem>
-      </EuiFlexGroup>
-
       <EuiSpacer size='l' />
 
-      <EuiBasicTable
-        items={items}
-        itemId='id'
+      <EuiInMemoryTable
+        items={sources}
+        itemId={sources._id}
         columns={columns}
         selection={selection}
         isSelectable={true}
         hasActions={true}
-        responsive={isResponsive}
+        responsive={true}
       />
     </Fragment>
   );
