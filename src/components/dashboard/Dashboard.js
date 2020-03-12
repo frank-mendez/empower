@@ -19,7 +19,6 @@ import {
   EuiNotificationBadge
 } from '@elastic/eui';
 
-import Sidebar from '../layouts/Sidebar';
 import Table from '../Table';
 
 const Dashboard = () => {
@@ -333,7 +332,6 @@ const Dashboard = () => {
   return (
     <div>
       <EuiPage>
-        <Sidebar />
         <EuiFlexGroup>
           <EuiFlexItem grow={3}>
             <EuiFlexItem grow={false}>

@@ -1,0 +1,4 @@
+export const RECRUIT_LOADED = 'RECRUIT_LOADED';
+export const RECRUIT_ERROR = 'RECRUIT_ERROR';
+export const SOURCE_LOADED = 'SOURCE_LOADED';
+export const SOURCE_ERROR = 'SOURCE_ERROR';
