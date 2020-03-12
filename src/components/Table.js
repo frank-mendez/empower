@@ -76,15 +76,15 @@ const Table = ({ getCurrentSource, sources }) => {
       name: 'Source',
       truncateText: true,
       sortable: true,
+      render: source => (
+        <span>
+          <EuiLink href='#' target='_blank'>
+            {source}
+          </EuiLink>
+        </span>
+      ),
       mobileOptions: {
-        show: true,
-        render: item => (
-          <span>
-            <EuiLink href='#' target='_blank'>
-              {item.source}
-            </EuiLink>
-          </span>
-        )
+        show: true
       }
     },
     {
@@ -92,15 +92,15 @@ const Table = ({ getCurrentSource, sources }) => {
       name: 'Name',
       truncateText: true,
       sortable: true,
+      render: title => (
+        <span>
+          <EuiLink href='#' target='_blank'>
+            {title}
+          </EuiLink>
+        </span>
+      ),
       mobileOptions: {
-        show: true,
-        render: item => (
-          <span>
-            <EuiLink href='#' target='_blank'>
-              {item.name}
-            </EuiLink>
-          </span>
-        )
+        show: true
       }
     },
     {
@@ -108,15 +108,15 @@ const Table = ({ getCurrentSource, sources }) => {
       name: 'Company',
       truncateText: true,
       sortable: true,
+      render: company => (
+        <span>
+          <EuiLink href='#' target='_blank'>
+            {company}
+          </EuiLink>
+        </span>
+      ),
       mobileOptions: {
-        show: true,
-        render: item => (
-          <span>
-            <EuiLink href='#' target='_blank'>
-              {item.company}
-            </EuiLink>
-          </span>
-        )
+        show: true
       }
     },
     {
@@ -124,42 +124,42 @@ const Table = ({ getCurrentSource, sources }) => {
       name: 'Title',
       truncateText: true,
       sortable: true,
+      render: title => (
+        <span>
+          <EuiText>{title}</EuiText>
+        </span>
+      ),
       mobileOptions: {
-        show: true,
-        render: item => (
-          <span>
-            <EuiText>{item.title}</EuiText>
-          </span>
-        )
+        show: true
       }
     },
     {
-      field: 'location',
-      name: 'Location',
+      field: 'address',
+      name: 'Address',
       truncateText: true,
       sortable: true,
+      render: address => (
+        <span>
+          <EuiText>{address}</EuiText>
+        </span>
+      ),
       mobileOptions: {
-        show: true,
-        render: item => (
-          <span>
-            <EuiText>{item.address}</EuiText>
-          </span>
-        )
+        show: true
       }
     },
     {
       field: 'campaign',
       name: 'Campaign',
       truncateText: true,
+      render: campaign => (
+        <span>
+          <EuiLink href='#' target='_blank'>
+            {campaign}
+          </EuiLink>
+        </span>
+      ),
       mobileOptions: {
-        show: true,
-        render: item => (
-          <span>
-            <EuiLink href='#' target='_blank'>
-              {item.campaign}
-            </EuiLink>
-          </span>
-        )
+        show: true
       },
       sortable: true
     },
@@ -167,13 +167,13 @@ const Table = ({ getCurrentSource, sources }) => {
       field: 'status',
       name: 'Status',
       truncateText: true,
+      render: status => (
+        <span>
+          <EuiText>{status}</EuiText>
+        </span>
+      ),
       mobileOptions: {
-        show: true,
-        render: item => (
-          <span>
-            <EuiText>{item.status}</EuiText>
-          </span>
-        )
+        show: true
       },
       sortable: true
     },
