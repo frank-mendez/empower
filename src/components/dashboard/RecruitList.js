@@ -8,7 +8,8 @@ import {
   EuiText,
   EuiTextAlign,
   EuiNotificationBadge,
-  EuiLoadingSpinner
+  EuiLoadingSpinner,
+  EuiLink
 } from '@elastic/eui';
 
 import { getCurrentRecruit } from '../../actions/source';
@@ -26,46 +27,41 @@ const RecruitList = ({ getCurrentRecruit, recruits, loading }) => {
         <Fragment>
           {recruits.length > 0 ? (
             recruits.map(recruit => (
-              <div key={recruit._id} className='dashboardList'>
+              <EuiLink href='' key={recruit._id} className='dashboardList'>
                 <EuiSpacer />
                 <EuiFlexGroup>
-                  <EuiFlexItem>
+                  <EuiFlexItem grow={10}>
                     <EuiText>
-                      <h3 key={5}>{recruit.position}</h3>
+                      <h6 key={5}>{recruit.position}</h6>
                     </EuiText>
                   </EuiFlexItem>
-                  <EuiFlexItem>
+                  <EuiFlexItem grow={2}>
                     <EuiText size='l'>
                       <EuiTextAlign textAlign='right'>
-                        <h3 key={5}>
-                          Job {recruit.index}
-                          <EuiNotificationBadge>3</EuiNotificationBadge>
-                        </h3>
+                        <h6 key={5}>Job {recruit.index}</h6>
                       </EuiTextAlign>
                     </EuiText>
                   </EuiFlexItem>
                 </EuiFlexGroup>
-                <EuiText>
-                  <p key={4}>
-                    <strong>URL Search:</strong>
-                    {recruit.url_search}
-                  </p>
+                <EuiText size='s'>
+                  <h6 key={4}>URL Search:</h6>
+                  <p>{recruit.url_search}</p>
                 </EuiText>
                 <EuiFlexGroup>
                   <EuiFlexItem>
                     <EuiText size='s'>
-                      <p>{recruit.guid}</p>
+                      <p key={1}>214</p>
                     </EuiText>
                   </EuiFlexItem>
                   <EuiFlexItem>
                     <EuiText size='s'>
                       <EuiTextAlign textAlign='right'>
-                        <p key={6}>{recruit.date}</p>
+                        <p key={6}>1 Month Ago</p>
                       </EuiTextAlign>
                     </EuiText>
                   </EuiFlexItem>
                 </EuiFlexGroup>
-              </div>
+              </EuiLink>
             ))
           ) : (
             <EuiFlexItem>

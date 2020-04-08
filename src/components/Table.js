@@ -122,7 +122,7 @@ const Table = ({ getCurrentSource, sources }) => {
     {
       field: 'title',
       name: 'Title',
-      truncateText: true,
+      truncateText: false,
       sortable: true,
       render: title => (
         <span>
@@ -190,6 +190,12 @@ const Table = ({ getCurrentSource, sources }) => {
     onSelectionChange: onSelectionChange
   };
 
+  const search = {
+    box: {
+      schema: true
+    }
+  };
+
   return (
     <Fragment>
       <EuiSpacer size='l' />
@@ -202,6 +208,7 @@ const Table = ({ getCurrentSource, sources }) => {
         isSelectable={true}
         hasActions={true}
         responsive={true}
+        search={search}
       />
     </Fragment>
   );

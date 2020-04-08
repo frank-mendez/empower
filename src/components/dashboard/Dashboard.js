@@ -17,23 +17,64 @@ import {
   EuiText,
   EuiFieldSearch,
   EuiPanel,
-  EuiTextAlign,
-  EuiNotificationBadge
+  EuiFlyout,
+  EuiFlyoutHeader,
+  EuiFlyoutBody
 } from '@elastic/eui';
 
 import Table from '../Table';
 import RecruitList from './RecruitList';
 
 const Dashboard = () => {
-  const [formData, setFormData] = useState({ selectAction: '' });
+  const [formData, setFormData] = useState({
+    selectAction: '',
+    isFlyoutVisible: false
+  });
 
-  const { selectAction } = formData;
+  const { selectAction, isFlyoutVisible } = formData;
 
   const options = [
     { value: 'option_one', text: 'Bulk Action' },
     { value: 'option_two', text: 'Option two' },
     { value: 'option_three', text: 'Option three' }
   ];
+
+  const closeFlyout = () => {
+    setFormData({
+      isFlyoutVisible: false
+    });
+  };
+
+  const showFlyout = () => {
+    setFormData({
+      isFlyoutVisible: true
+    });
+  };
+  let flyout;
+  if (isFlyoutVisible) {
+    flyout = (
+      <EuiFlyout
+        ownFocus
+        onClose={closeFlyout}
+        size='s'
+        aria-labelledby='flyoutSmallTitle'
+      >
+        <EuiFlyoutHeader hasBorder>
+          <EuiTitle size='s'>
+            <h2></h2>
+          </EuiTitle>
+        </EuiFlyoutHeader>
+        <EuiFlyoutBody>
+          <EuiText>
+            <p>
+              In small flyouts, it is ok to reduce the header size to{' '}
+              <code>s</code>.
+            </p>
+          </EuiText>
+        </EuiFlyoutBody>
+      </EuiFlyout>
+    );
+  }
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -73,9 +114,10 @@ const Dashboard = () => {
         <EuiFlexGroup>
           <EuiFlexItem grow={3}>
             <EuiFlexItem grow={false}>
-              <EuiButton fill onClick={() => window.alert('Button clicked')}>
+              <EuiButton fill onClick={() => showFlyout()}>
                 Start New Search Task
               </EuiButton>
+              {flyout}
               <EuiSpacer />
               <EuiFlexGroup>
                 <EuiFlexItem>
