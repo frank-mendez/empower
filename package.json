@@ -19,7 +19,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "uuid": "^3.4.0",
-    "axios": "^0.19.2"
+    "axios": "^0.21.1"
   },
   "scripts": {
     "start": "react-scripts start",
